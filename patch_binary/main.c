@@ -100,12 +100,11 @@ int main(int argc, char **argv)
         int s;
         uint32_t checksum = 0;
 
-        //if (argc != 2) {
-        //        fprintf(stderr, "%s requires a binary file argument\n", argv[0]);
-        //        exit(0);
-        //}
-        //input_binary = argv[1];
-        input_binary = "Z:\\git\\test_bootloader_app\\firmware\\test_bootloader_app.X\\dist\\default\\production\\test_bootloader_app.X.production.bin";
+        if (argc != 2) {
+                fprintf(stderr, "%s requires a binary file argument\n", argv[0]);
+                exit(0);
+        }
+        input_binary = argv[1];
         bin_file = fopen(input_binary, "r+b");
         if (!bin_file) {
                 fprintf(stderr, "cannot open binary file %s\n", input_binary);
